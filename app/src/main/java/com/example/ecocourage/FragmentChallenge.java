@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-public class FragmentStore extends Fragment {
+public class FragmentChallenge extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        return inflater.inflate(R.layout.fragment_store,container,false);
+        return inflater.inflate(R.layout.fragment_challenge,container,false);
     }
 }

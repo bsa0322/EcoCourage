@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     private FragmentSearch fragmentSearch = new FragmentSearch();
     private FragmentHome fragmentHome = new FragmentHome();
     private FragmentStore fragmentStore = new FragmentStore();
+    private FragmentChallenge fragmentChallenge = new FragmentChallenge();
+    private FragmentCommunication fragmentCommunication = new FragmentCommunication();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.frameLayout, fragmentSearch).commitAllowingStateLoss();
+        transaction.replace(R.id.frameLayout, fragmentHome).commitAllowingStateLoss();
         
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
@@ -44,6 +46,12 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.storeItem:
                     transaction.replace(R.id.frameLayout, fragmentStore).commitAllowingStateLoss();
+                    break;
+                case R.id.challengeItem:
+                    transaction.replace(R.id.frameLayout, fragmentChallenge).commitAllowingStateLoss();
+                    break;
+                case R.id.communicationItem:
+                    transaction.replace(R.id.frameLayout, fragmentCommunication).commitAllowingStateLoss();
                     break;
             }
             return true;
