@@ -38,5 +38,7 @@
     <style name="CheckboxStyle" parent="@android:style/Widget.DeviceDefault.CompoundButton.CheckBox">
         <item name="android:fontFamily">@font/titlegodic2</item>
     </style>
-
+    <style name="Theme.EcoCourage.addRipple">
+    <item name="colorControlHighlight">#1F5122</item>
+    </style>
 </resources>
