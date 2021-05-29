@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private FragmentStore fragmentStore = new FragmentStore();
     private FragmentChallenge fragmentChallenge = new FragmentChallenge();
     private FragmentCommunication fragmentCommunication = new FragmentCommunication();
+    private FragmentAeyoungCard fragmentAeyoungCard=new FragmentAeyoungCard();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,4 +58,10 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
     }
+
+    public void onFragmentChange(int index){
+        if(index==0) getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,fragmentAeyoungCard).commit();
+    }
+
+
 }
