@@ -33,7 +33,7 @@
         />
 
     <Button
-        android:id="@+id/addstore"
+        android:id="@+id/addcard"
         android:layout_width="55dp"
         android:layout_height="66dp"
         android:backgroundTint="#84BD60"
@@ -74,7 +74,7 @@
             />
 
         <Button
-            android:id="@+id/add_store"
+            android:id="@+id/addstore"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="130dp"
             android:layout_height="90dp"

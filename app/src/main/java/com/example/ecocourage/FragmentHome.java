@@ -31,9 +31,9 @@ public class FragmentHome extends Fragment {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
 
         ImageButton aeyoung =(ImageButton)v.findViewById(R.id.aeyoung);
-        Button addstore=(Button) v.findViewById(R.id.addstore);
+        Button addcard=(Button) v.findViewById(R.id.addstore);
         Button mystore=(Button) v.findViewById(R.id.mystore);
-        Button add_store=(Button) v.findViewById(R.id.add_store);
+        Button addstore=(Button) v.findViewById(R.id.addstore);
         Button usestamp=(Button) v.findViewById(R.id.usestamp);
 
 
@@ -43,22 +43,22 @@ public class FragmentHome extends Fragment {
             }
         });
 
-        addstore.setOnClickListener(new View.OnClickListener() {
+        addcard.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             }
         });
-
 
         mystore.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             }
         });
-        add_store.setOnClickListener(new View.OnClickListener() {
+        addstore.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             }
         });
         usestamp.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                activity.onFragmentChange(1);
             }
         });
 
