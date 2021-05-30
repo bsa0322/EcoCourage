@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private FragmentChallenge fragmentChallenge = new FragmentChallenge();
     private FragmentCommunication fragmentCommunication = new FragmentCommunication();
     private FragmentAeyoungCard fragmentAeyoungCard=new FragmentAeyoungCard();
+    private FragmentUseStamp fragmentUseStamp=new FragmentUseStamp();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +61,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onFragmentChange(int index){
-        if(index==0) getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,fragmentAeyoungCard).commit();
+        if(index==0) getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,fragmentAeyoungCard).commit();//애용카드
+        else if(index==1) getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,fragmentUseStamp).commit();//스탬프사용
+
     }
 
 
