@@ -31,7 +31,7 @@ public class FragmentHome extends Fragment {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
 
         ImageButton aeyoung =(ImageButton)v.findViewById(R.id.aeyoung);
-        Button addcard=(Button) v.findViewById(R.id.addstore);
+        Button addcard=(Button) v.findViewById(R.id.addcard);
         Button mystore=(Button) v.findViewById(R.id.mystore);
         Button addstore=(Button) v.findViewById(R.id.addstore);
         Button usestamp=(Button) v.findViewById(R.id.usestamp);
