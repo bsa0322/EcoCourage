@@ -3,6 +3,7 @@ package com.example.ecocourage;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -17,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -105,7 +107,7 @@ public class Fragment_myecostore extends Fragment {
 
             //컨트롤의 참조값
             TextView textView_name = convertView.findViewById(R.id.textView_name);
-            TextView textView_tel = convertView.findViewById(R.id.textView_tel);
+            TextView textView_address = convertView.findViewById(R.id.textView_address);
             Button button_delete = convertView.findViewById(R.id.button_delete);
 
             //배치해야될 데이터 1개 얻어오기
@@ -113,7 +115,8 @@ public class Fragment_myecostore extends Fragment {
 
             //컨트롤에 배치
             textView_name.setText(es.getName());
-            textView_tel.setText(es.getAddress());
+            textView_address.setText(es.getAddress());
+            //이미지추가 구현못함
 
             //삭제버튼 클릭시
             button_delete.setOnClickListener(new View.OnClickListener(){

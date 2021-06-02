@@ -43,23 +43,23 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView_tel"
+                android:id="@+id/textView_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                android:text="전화번호" />
+                android:text="주소" />
 
             <EditText
-                android:id="@+id/edittext_tel"
+                android:id="@+id/edittext_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="text"
-                android:text="tel"/>
+                android:text="address"/>
 
         </LinearLayout>
 

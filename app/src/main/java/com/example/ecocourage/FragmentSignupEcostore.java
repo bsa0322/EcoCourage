@@ -26,14 +26,14 @@ public class FragmentSignupEcostore extends Fragment {
 
         Button btn_add = v.findViewById(R.id.btn_add);
         EditText nameEditText = (EditText)v.findViewById(R.id.edittext_name);
-        EditText telEditText = (EditText)v.findViewById(R.id.edittext_tel);
+        EditText addressEditText = (EditText)v.findViewById(R.id.edittext_address);
 
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 String name = nameEditText.getText().toString().trim();
-                String tel = telEditText.getText().toString().trim();
+                String address = addressEditText.getText().toString().trim();
 
                 /*
                 //비어있으면
@@ -55,7 +55,7 @@ public class FragmentSignupEcostore extends Fragment {
                 EcoStoreDatabaseManager databaseManager = new EcoStoreDatabaseManager(getActivity().getApplicationContext());
 
                 //데이터 저장
-                EcoStore es = new EcoStore(name,tel);
+                EcoStore es = new EcoStore(name,address);
 
                 //데이터베이스에 등록
                 databaseManager.insert(es);
