@@ -5,7 +5,6 @@ public class UseStampStoreData {
     private String storeAddress;
     private int myStampNumber;
 
-
     public UseStampStoreData(String storeName, String storeAddress, int myStampNumber) {
         this.storeName = storeName;
         this.storeAddress = storeAddress;

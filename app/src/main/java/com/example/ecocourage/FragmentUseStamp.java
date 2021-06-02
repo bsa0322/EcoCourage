@@ -1,33 +1,93 @@
 package com.example.ecocourage;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+
+import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
+
+
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+
 
 import java.util.ArrayList;
 
-public class FragmentUseStamp extends Fragment {
 
-    private ArrayList<UseStampStoreData> arrayList;
-    private UseStampAdapter useStampAdapter;
-    private RecyclerView recyclerView;
-    private LinearLayoutManager linearLayoutManager;
+public class FragmentUseStamp extends Fragment {
+    private ListView useStampList;//스탬프사용 가게 리스트뷰
+    private UseStampAdapter adapter;
+    private ArrayList<UseStampStoreData> s_list;
+
+    public FragmentUseStamp(){}
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        View v=inflater.inflate(R.layout.fragment_usestamp, container, false);
 
+        s_list=new ArrayList<UseStampStoreData>();
+        s_list.add(new UseStampStoreData("수아네 집","수아맘솟",5));
 
-        recyclerView =(RecyclerView)getActivity().findViewById(R.id.usestampstore);
-        linearLayoutManager=new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(linearLayoutManager);
-        arrayList =new ArrayList<>();
+        adapter=new UseStampAdapter();
+        useStampList=(ListView) v.findViewById(R.id.useStampList);
+        useStampList.setAdapter(adapter);
 
-        useStampAdapter =new UseStampAdapter(arrayList);
-        recyclerView.setAdapter(useStampAdapter);
-
-        return inflater.inflate(R.layout.fragment_usestamp,container,false);
+      return v;
     }
+
+    class UseStampAdapter extends BaseAdapter {
+        //어댑터에 추가된 데이터 저장 arraylist
+
+        public UseStampAdapter(){
+        }
+
+
+        @Override
+        public int getCount() {
+            return s_list.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return s_list.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            final int pos=position;
+            final Context context=parent.getContext();
+
+            //convertview참조
+            if(convertView==null)
+            {
+                LayoutInflater inflater=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                convertView =inflater.inflate(R.layout.fragment_usestamplistitem,parent,false);
+            }
+
+            TextView tv_storeName=(TextView) convertView.findViewById(R.id.storeName);
+            TextView tv_storeAddress=(TextView) convertView.findViewById(R.id.storeAddress);
+            TextView tv_myStampNumber=(TextView) convertView.findViewById(R.id.myStampNumber);
+            //버튼도 구현?
+
+            //position에 위치한 데이터 참조 획득
+            UseStampStoreData useStampStoreData=s_list.get(position);
+
+            //아이템 내 각 위젯에 데이터 반영
+            tv_storeName.setText(useStampStoreData.getStoreName());
+            tv_storeAddress.setText(useStampStoreData.getStoreAddress());
+            tv_myStampNumber.setText(Integer.toString(useStampStoreData.getMyStampNumber()));
+
+            return convertView;
+        }
+    }
+
 }

@@ -39,5 +39,4 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.naver.maps:map-sdk:3.11.0' //네이버 지도 SDK
     implementation 'com.google.android.gms:play-services-location:16.0.0' //네이버 지도 위치 추적
-    implementation 'androidx.recyclerview:recyclerview:1.1.0'//스탬프사용하기 리스트
 }
