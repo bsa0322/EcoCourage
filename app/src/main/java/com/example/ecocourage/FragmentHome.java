@@ -37,7 +37,7 @@ public class FragmentHome extends Fragment {
         Button usestamp=(Button) v.findViewById(R.id.usestamp);
 
 
-      aeyoung.setOnClickListener(new View.OnClickListener() {
+        aeyoung.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 activity.onFragmentChange(0);
             }
@@ -49,7 +49,7 @@ public class FragmentHome extends Fragment {
         });
 
         mystore.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
+            public void onClick(View v) { activity.onFragmentChange(5);
             }
         });
         addstore.setOnClickListener(new View.OnClickListener() {
