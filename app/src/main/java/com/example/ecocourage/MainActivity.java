@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     private FragmentCommunication fragmentCommunication = new FragmentCommunication();
     private FragmentAeyoungCard fragmentAeyoungCard=new FragmentAeyoungCard();
     private FragmentUseStamp fragmentUseStamp=new FragmentUseStamp();
+    private Fragment_myecostore fragment_myecostore = new Fragment_myecostore();
+    private FragmentSignupEcostore fragmentSignupEcostore = new FragmentSignupEcostore();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
     public void onFragmentChange(int index){
         if(index==0) getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,fragmentAeyoungCard).commit();//애용카드
         else if(index==1) getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,fragmentUseStamp).commit();//스탬프사용
+        else if(index==5) getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,fragment_myecostore).commit(); //나의애용가게
+        else if(index==6) getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,fragmentSignupEcostore).commit(); //애용가게 등록
 
     }
 
