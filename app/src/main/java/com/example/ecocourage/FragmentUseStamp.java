@@ -22,15 +22,22 @@ import java.util.ArrayList;
 public class FragmentUseStamp extends Fragment {
     private ListView useStampList;//스탬프사용 가게 리스트뷰
     private UseStampAdapter adapter;
-    private ArrayList<UseStampStoreData> s_list;
+    //private ArrayList<UseStampStoreData> s_list;
 
+    //데이터베이스
+    EcoStoreDatabaseManager databaseManager = null;
+    ArrayList<EcoStore> eco_list = null;
+    ListView listView;
+    
     public FragmentUseStamp(){}
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v=inflater.inflate(R.layout.fragment_usestamp, container, false);
 
-        s_list=new ArrayList<UseStampStoreData>();
-        s_list.add(new UseStampStoreData("수아네 집","수아맘솟",5));
+        databaseManager = new EcoStoreDatabaseManager(getActivity().getApplicationContext());
+
+        //데이터 가져옴
+        eco_list = databaseManager.selectList();
 
         adapter=new UseStampAdapter();
         useStampList=(ListView) v.findViewById(R.id.useStampList);
@@ -38,6 +45,7 @@ public class FragmentUseStamp extends Fragment {
 
       return v;
     }
+
 
     class UseStampAdapter extends BaseAdapter {
         //어댑터에 추가된 데이터 저장 arraylist
@@ -48,12 +56,12 @@ public class FragmentUseStamp extends Fragment {
 
         @Override
         public int getCount() {
-            return s_list.size();
+            return eco_list.size();
         }
 
         @Override
         public Object getItem(int position) {
-            return s_list.get(position);
+            return eco_list.get(position);
         }
 
         @Override
@@ -79,12 +87,12 @@ public class FragmentUseStamp extends Fragment {
             //버튼도 구현?
 
             //position에 위치한 데이터 참조 획득
-            UseStampStoreData useStampStoreData=s_list.get(position);
+            final EcoStore es = eco_list.get(position);
 
             //아이템 내 각 위젯에 데이터 반영
-            tv_storeName.setText(useStampStoreData.getStoreName());
-            tv_storeAddress.setText(useStampStoreData.getStoreAddress());
-            tv_myStampNumber.setText(Integer.toString(useStampStoreData.getMyStampNumber()));
+            tv_storeName.setText(es.getName());
+            tv_storeAddress.setText(es.getAddress());
+            tv_myStampNumber.setText(Integer.toString(es.getCustomerStamp()));
 
             return convertView;
         }
