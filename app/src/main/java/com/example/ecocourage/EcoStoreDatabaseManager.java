@@ -34,7 +34,7 @@ public class EcoStoreDatabaseManager {
         SQLiteDatabase db = null;
         try{
             db = getDatabase();
-            String sql = String.format("insert into %s(name,tel) values('%s','%s')", tbName, es.getName(), es.getAddress(), es.getCustomerCourage(), es.getCustomerStamp());
+            String sql = String.format("insert into %s(name,address,customerCourage,customerStamp) values('%s','%s','%d','%d')", tbName, es.getName(), es.getAddress(), es.getCustomerCourage(), es.getCustomerStamp());
             db.execSQL(sql);
             res = 1;
         } catch(SQLException e){
@@ -70,7 +70,7 @@ public class EcoStoreDatabaseManager {
         SQLiteDatabase db = null;
         try{
             db = getDatabase();
-            String sql = String.format("update %s set name='%s',tel='%s' where idx=%d", tbName, es.getName(), es.getAddress(), es.getCustomerCourage(), es.getCustomerStamp(), es.getIdx() );
+            String sql = String.format("update %s set name='%s',address='%s', customerCourage='%d', customerStamp='%d' where idx=%d", tbName, es.getName(), es.getAddress(), es.getCustomerCourage(), es.getCustomerStamp(), es.getIdx() );
             db.execSQL(sql);
             res = 1;
         } catch(SQLException e){
@@ -89,7 +89,7 @@ public class EcoStoreDatabaseManager {
 
         //Cursor 개념 익혀두기
         Cursor cursor = null;
-        String [] col_names = {"idx","name","tel"};
+        String [] col_names = {"idx","name","address","customerCourage","customerStamp"};
 
         try{
             db = getDatabase();
@@ -99,9 +99,9 @@ public class EcoStoreDatabaseManager {
                     do{
                         int idx = cursor.getInt(0);
                         String name = cursor.getString(1);
-                        String tel = cursor.getString(2);
+                        String address = cursor.getString(2);
 
-                        list.add(new EcoStore(idx,name,tel));
+                        list.add(new EcoStore(idx,name,address));
                     }while(cursor.moveToNext());
                 }
             }
