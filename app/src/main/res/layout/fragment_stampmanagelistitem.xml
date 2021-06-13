@@ -25,11 +25,10 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             />
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginLeft="240dp"
             android:layout_gravity="center_vertical"
             >
             <TextView
@@ -38,15 +37,19 @@
                 android:layout_height="wrap_content"
                 android:text="n"
                 android:textSize="30dp"
-                />
+                android:layout_toLeftOf="@+id/개" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/개"
                 android:text="  개"
                 android:textSize="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="8dp"
                 />
 
-        </LinearLayout>
+        </RelativeLayout>
     </LinearLayout>
 
 

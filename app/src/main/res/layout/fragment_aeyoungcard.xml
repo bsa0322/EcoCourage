@@ -3,20 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:background="#B9000000"
+    android:orientation="vertical">
+
 
     //애용카드버튼
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:id="@+id/aeyoung_aeyoungcard"
         android:layout_width="340dp"
         android:layout_height="200dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="80dp"
         android:paddingRight="30dp"
         android:drawableRight="@drawable/aeyoungcardicon"
         android:text="       애용카드"
         android:textSize="30dp"
-        android:background="@drawable/buttonshape"
+        android:textColor="@color/black"
+        android:backgroundTint="#D0E3BA"
+        android:theme="@style/Theme.EcoCourage.addRipple"
         />
 
 </LinearLayout>

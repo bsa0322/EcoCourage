@@ -4,17 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:orientation="vertical"
+    android:layout_marginTop="50dp"
+    android:layout_marginBottom="70dp">
 
     <ImageButton
         android:id="@+id/aeyoung"
@@ -22,92 +14,88 @@
         android:layout_height="200dp"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        android:background="@drawable/buttonshape"
-        android:contentDescription="TODO"
-        android:scaleType="fitEnd"
-        app:srcCompat="@drawable/aeyoung"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="85dp" />
+        android:elevation="10dp"
+        android:src="@drawable/aeyoungcardicon"
+        android:backgroundTint="#D0E3BA"
+        android:theme="@style/Theme.EcoCourage.addRipple"
+        />
 
     <Button
         android:id="@+id/addcard"
-        android:layout_width="55dp"
-        android:layout_height="66dp"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:layout_gravity="right"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="45dp"
-        android:backgroundTint="#84BD60"
-        android:text="+"
-        android:textSize="25sp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:layout_marginRight="40dp"
+        android:backgroundTint="#A2B1A2"
+        android:text="카드등록"
+        android:textSize="15sp"
         android:theme="@style/Theme.EcoCourage.addRipple"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="311dp"
         tools:layout_editor_absoluteY="295dp" />
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="1">
+        android:orientation="horizontal"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/mystore"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/white"
+                android:text="나의\n애용가게"
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:theme="@style/Theme.EcoCourage.addRipple"/>
+            <Button
+                android:id="@+id/addstore"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/white"
+                android:text="애용가게\n등록"
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:theme="@style/Theme.EcoCourage.addRipple"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="30dp">
+            <Button
+                android:id="@+id/mycourage"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/white"
+                android:text="(용기점수)"
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:theme="@style/Theme.EcoCourage.addRipple"/>
 
-        <ImageView
-            android:id="@+id/whiteboard"
-            android:layout_width="340dp"
-            android:layout_height="280dp"
 
-            android:background="@drawable/buttonshape" />
+            <Button
+                android:id="@+id/usestamp"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/white"
+                android:text="스탬프\n사용"
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:theme="@style/Theme.EcoCourage.addRipple"/>
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/mystore"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="130dp"
-            android:layout_height="90dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="30dp"
-            android:backgroundTint="@color/white"
-            android:text="나의\n애용가게"
-            android:textColor="#000"
-            android:textSize="20sp" />
-
-
-        <Button
-            android:id="@+id/mycourage"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="130dp"
-            android:layout_height="90dp"
-            android:layout_marginLeft="180dp"
-            android:layout_marginTop="30dp"
-            android:backgroundTint="@color/white"
-            android:text="(용기점수)"
-            android:textColor="#000"
-            android:textSize="20sp" />
-
-        <Button
-            android:id="@+id/addstore"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="130dp"
-            android:layout_height="90dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="160dp"
-            android:backgroundTint="@color/white"
-            android:text="애용가게\n등록"
-            android:textColor="#000"
-            android:textSize="20sp" />
-
-        <Button
-            android:id="@+id/usestamp"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="130dp"
-            android:layout_height="90dp"
-            android:layout_marginLeft="180dp"
-            android:layout_marginTop="160dp"
-            android:backgroundTint="@color/white"
-            android:text="스탬프\n사용"
-            android:textColor="#000"
-            android:textSize="20sp" />
-
-        />
-    </RelativeLayout>
+    </LinearLayout>
 
 </LinearLayout>
