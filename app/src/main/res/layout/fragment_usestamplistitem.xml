@@ -63,6 +63,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:text="사용하기"
+                    android:fontFamily="@font/titlegodic2"
                     android:backgroundTint="#70AD47" />
 
                 <LinearLayout
