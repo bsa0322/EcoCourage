@@ -109,7 +109,7 @@ public class FragmentStampManage extends Fragment {
             final Payment pm = pay_list.get(position);
 
             //아이템 내 각 위젯에 데이터 반영
-            tv_stampList.setText("-"+Integer.toString(pm.getStamp()));
+            tv_stampList.setText(Integer.toString(pm.getStamp()));
 
             return convertView;
         }
