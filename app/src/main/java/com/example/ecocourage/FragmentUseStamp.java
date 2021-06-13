@@ -126,18 +126,24 @@ public class FragmentUseStamp extends Fragment {
                     int storeIdx = es.getIdx();
                     String name = es.getName();
                     double sale = es.getStoreSale();
-                    int stamp = es.getStoreStamp();
+                    int stamp = es.getStoreStamp() * (-1);
                     int courage = 1;
                     PaymentDatabaseManager databaseManager_payment = new PaymentDatabaseManager(getActivity().getApplicationContext());
 
-                    //데이터 저장
-                    Payment pm = new Payment(storeIdx,name,sale,stamp,courage);
+                    //데이터 저장-스탬프감소
+                    Payment pm = new Payment(storeIdx,name,sale,stamp,0);
+
+                    //데이터베이스에 등록
+                    databaseManager_payment.insert(pm);
+
+                    //데이터 저장-스탬프증가
+                    pm = new Payment(storeIdx,name,sale,1,courage);
 
                     //데이터베이스에 등록
                     databaseManager_payment.insert(pm);
 
                     //스탬프 감소
-                    int customerStamp = es.getCustomerStamp() - stamp + courage;
+                    int customerStamp = es.getCustomerStamp() + stamp + courage;
                     //업데이트 데이터 다시 만들기
                     EcoStore es_up = new EcoStore(es.getIdx(),es.getName(),es.getAddress(),es.getCustomerCourage(),customerStamp,es.getRanking(),es.getStoreStamp(),es.getStoreSale());
                     //애용가게 데이터 업데이트
