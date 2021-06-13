@@ -23,7 +23,7 @@
         <item name="android:fontFamily">@font/titlegodic2</item>
     </style>
 
-    <style name="ButtonStyle" parent="@android:style/Widget.DeviceDefault.Button.Borderless">
+    <style name="ButtonStyle" parent="@android:style/Widget.DeviceDefault.Button">
         <item name="android:fontFamily">@font/titlegodic2</item>
     </style>
 
