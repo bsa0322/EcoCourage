@@ -23,7 +23,7 @@ public class EcoStoreDatabaseManager {
         SQLiteDatabase db = context.openOrCreateDatabase(dbName, Context.MODE_PRIVATE, null);
 
         //테이블이 존재하지 않으면 새로 생성
-        db.execSQL("CREATE TABLE IF NOT EXISTS " + tbName + " ( idx Integer primary key autoincrement,name text,address text,customerCourage integer,customerStamp integer);");
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + tbName + " ( idx Integer primary key autoincrement,name text,address text,customerCourage integer,customerStamp integer,ranking integer,storeStamp integer,storeSale double);");
 
         return db;
     }
@@ -34,7 +34,7 @@ public class EcoStoreDatabaseManager {
         SQLiteDatabase db = null;
         try{
             db = getDatabase();
-            String sql = String.format("insert into %s(name,address,customerCourage,customerStamp) values('%s','%s','%d','%d')", tbName, es.getName(), es.getAddress(), es.getCustomerCourage(), es.getCustomerStamp());
+            String sql = String.format("insert into %s(name,address,customerCourage,customerStamp,ranking,storeStamp,storeSale) values('%s','%s','%d','%d','%d','%d','%f')", tbName, es.getName(), es.getAddress(), es.getCustomerCourage(), es.getCustomerStamp(),es.getRanking(),es.getStoreStamp(),es.getStoreSale());
             db.execSQL(sql);
             res = 1;
         } catch(SQLException e){
@@ -70,7 +70,7 @@ public class EcoStoreDatabaseManager {
         SQLiteDatabase db = null;
         try{
             db = getDatabase();
-            String sql = String.format("update %s set name='%s',address='%s', customerCourage='%d', customerStamp='%d' where idx=%d", tbName, es.getName(), es.getAddress(), es.getCustomerCourage(), es.getCustomerStamp(), es.getIdx() );
+            String sql = String.format("update %s set name='%s',address='%s', customerCourage='%d', customerStamp='%d', ranking='%d', storeStamp='%d', storeSale='%f' where idx=%d", tbName, es.getName(), es.getAddress(), es.getCustomerCourage(), es.getCustomerStamp(), es.getRanking(), es.getStoreStamp(), es.getStoreSale(), es.getIdx() );
             db.execSQL(sql);
             res = 1;
         } catch(SQLException e){
@@ -89,7 +89,7 @@ public class EcoStoreDatabaseManager {
 
         //Cursor 개념 익혀두기
         Cursor cursor = null;
-        String [] col_names = {"idx","name","address","customerCourage","customerStamp"};
+        String [] col_names = {"idx","name","address","customerCourage","customerStamp","ranking","storeStamp","storeSale"};
 
         try{
             db = getDatabase();
@@ -100,8 +100,13 @@ public class EcoStoreDatabaseManager {
                         int idx = cursor.getInt(0);
                         String name = cursor.getString(1);
                         String address = cursor.getString(2);
+                        int customerCourage = cursor.getInt(3);
+                        int customerStamp = cursor.getInt(4);
+                        int ranking = cursor.getInt(5);
+                        int storeStamp = cursor.getInt(6);
+                        double storeSale = cursor.getDouble(7);
 
-                        list.add(new EcoStore(idx,name,address));
+                        list.add(new EcoStore(idx,name,address,customerCourage,customerStamp,ranking,storeStamp,storeSale));
                     }while(cursor.moveToNext());
                 }
             }
