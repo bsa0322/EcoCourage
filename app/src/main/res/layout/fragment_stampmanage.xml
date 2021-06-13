@@ -26,7 +26,7 @@
                 android:src="@drawable/stampicon1"
                 android:layout_gravity="center_vertical"/>
             <TextView
-                android:id="@+id/allstampnuber"
+                android:id="@+id/allstampnumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="n"

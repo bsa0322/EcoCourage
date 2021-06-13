@@ -9,6 +9,8 @@ import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
+
 public class FragmentUseStampCard extends Fragment {
     private MainActivity activity;
 
@@ -25,6 +27,7 @@ public class FragmentUseStampCard extends Fragment {
         View v = inflater.inflate(R.layout.fragment_usestampcard,container,false);
 
         PaymentDatabaseManager databaseManager_payment = new PaymentDatabaseManager(getActivity().getApplicationContext());
+        EcoStoreDatabaseManager databaseManager_ecoStore = new EcoStoreDatabaseManager(getActivity().getApplicationContext());
 
         Button aeyoung_usestampcard = v.findViewById(R.id.aeyoung_usestampcard);
 
@@ -38,6 +41,7 @@ public class FragmentUseStampCard extends Fragment {
             @Override
             public void onClick(View v) {
                 //메인화면으로 가게 하기
+                activity.onFragmentChange(7);
             }
         });
 

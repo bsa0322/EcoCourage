@@ -81,7 +81,72 @@ public class EcoStoreDatabaseManager {
         }
         return res;
     }
-
+    
+    //해당 행 데이터 가져오기
+    public EcoStore positionData(int position){
+        EcoStore es = new EcoStore();
+        
+        SQLiteDatabase db = null;
+        
+        //Cursor
+        Cursor cursor = null;
+        String [] col_names = {"idx","name","address","customerCourage","customerStamp","ranking","storeStamp","storeSale"};
+        
+        try{
+            db = getDatabase();
+            cursor = db.query(tbName, col_names, null, null, null, null, null);
+            if(cursor!=null){
+                if(position==1){
+                    if(cursor.moveToFirst()){
+                        int idx = cursor.getInt(0);
+                        String name = cursor.getString(1);
+                        String address = cursor.getString(2);
+                        int customerCourage = cursor.getInt(3);
+                        int customerStamp = cursor.getInt(4);
+                        int ranking = cursor.getInt(5);
+                        int storeStamp = cursor.getInt(6);
+                        double storeSale = cursor.getDouble(7);
+                        es = new EcoStore(idx,name,address,customerCourage,customerStamp,ranking,storeStamp,storeSale);
+                    }
+                }
+                else if(cursor.moveToPosition(position)){
+                    int idx = cursor.getInt(0);
+                    String name = cursor.getString(1);
+                    String address = cursor.getString(2);
+                    int customerCourage = cursor.getInt(3);
+                    int customerStamp = cursor.getInt(4);
+                    int ranking = cursor.getInt(5);
+                    int storeStamp = cursor.getInt(6);
+                    double storeSale = cursor.getDouble(7);
+                    es = new EcoStore(idx,name,address,customerCourage,customerStamp,ranking,storeStamp,storeSale);
+                }
+                else{
+                    if(cursor.moveToLast()){
+                        int idx = cursor.getInt(0);
+                        String name = cursor.getString(1);
+                        String address = cursor.getString(2);
+                        int customerCourage = cursor.getInt(3);
+                        int customerStamp = cursor.getInt(4);
+                        int ranking = cursor.getInt(5);
+                        int storeStamp = cursor.getInt(6);
+                        double storeSale = cursor.getDouble(7);
+                        es = new EcoStore(idx,name,address,customerCourage,customerStamp,ranking,storeStamp,storeSale);
+                    }
+                }
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        } finally{
+            if(cursor!=null)
+                cursor.close();
+            if(db!=null)
+                db.close();
+        }
+        return es;
+    }
+    
+    
+    //데이터베이스 테이블 행 모두 가져오기
     public ArrayList<EcoStore> selectList(){
         ArrayList<EcoStore> list = new ArrayList<EcoStore>();
 
