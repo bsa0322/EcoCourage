@@ -16,6 +16,8 @@ public class EcoStore implements Serializable{
     int storeStamp; //가게 할인률당 스탬프량
     double storeSale; //가게 할인률
 
+    public EcoStore(){};
+
     public EcoStore(String name, String tel, int idx){
         this.customerCourage=0;
         this.customerStamp=0;
@@ -36,14 +38,14 @@ public class EcoStore implements Serializable{
         this.customerStamp=0;
     }
 
-    public EcoStore(String name, String address, int ranking, int storeStamp, double storeSale){
+    public EcoStore(String name, String address, int customerStamp, int storeStamp, double storeSale){
         this.name=name;
         this.address=address;
-        this.ranking=ranking;
+        this.ranking=1;
         this.storeStamp=storeStamp;
         this.storeSale=storeSale;
-        this.customerCourage=0;
-        this.customerStamp=0;
+        this.customerCourage=customerStamp;
+        this.customerStamp=customerStamp;
     }
 
     public EcoStore(int idx, String name, String address, int customerCourage, int customerStamp, int ranking, int storeStamp, double storeSale){

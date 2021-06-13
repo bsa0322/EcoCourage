@@ -35,6 +35,7 @@ public class FragmentHome extends Fragment {
         Button mystore=(Button) v.findViewById(R.id.mystore);
         Button addstore=(Button) v.findViewById(R.id.addstore);
         Button usestamp=(Button) v.findViewById(R.id.usestamp);
+        Button mycourage=(Button) v.findViewById(R.id.mycourage);
 
 
         aeyoung.setOnClickListener(new View.OnClickListener() {
@@ -62,6 +63,9 @@ public class FragmentHome extends Fragment {
             }
         });
 
+        mycourage.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {activity.onFragmentChange(4); }
+        });
 
 
 

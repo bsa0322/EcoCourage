@@ -135,6 +135,13 @@ public class FragmentUseStamp extends Fragment {
 
                     //데이터베이스에 등록
                     databaseManager_payment.insert(pm);
+
+                    //스탬프 감소
+                    int customerStamp = es.getCustomerStamp() - stamp + courage;
+                    //업데이트 데이터 다시 만들기
+                    EcoStore es_up = new EcoStore(es.getIdx(),es.getName(),es.getAddress(),es.getCustomerCourage(),customerStamp,es.getRanking(),es.getStoreStamp(),es.getStoreSale());
+                    //애용가게 데이터 업데이트
+                    databaseManager.update(es_up);
                 }
             });
 

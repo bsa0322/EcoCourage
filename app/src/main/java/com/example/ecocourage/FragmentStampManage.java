@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class FragmentStampManage extends Fragment {
@@ -19,8 +21,9 @@ public class FragmentStampManage extends Fragment {
     private StampManageAdapter adapter;
 
     //데이터베이스
+    EcoStoreDatabaseManager ecoStoreDatabaseManager = null;
     PaymentDatabaseManager databaseManager = null;
-    ArrayList<Payment> pay_list = null;
+    ArrayList<Payment> pay_list = new ArrayList<Payment>();
 
     public FragmentStampManage(){}
 
@@ -28,21 +31,41 @@ public class FragmentStampManage extends Fragment {
         View v=inflater.inflate(R.layout.fragment_stampmanage,container,false);
 
         databaseManager = new PaymentDatabaseManager(getActivity().getApplicationContext());
+        ecoStoreDatabaseManager = new EcoStoreDatabaseManager(getActivity().getApplicationContext());
 
         pay_list=databaseManager.selectList();
 
         int ecoStore_idx = Fragment_myecostore.ecoStore_idx; //애용가게 데이터베이스 인덱스 번호
-        for(int i=0;i<pay_list.size();i++){
+
+        for(int i=0;;){
+            if(pay_list.isEmpty() || i == pay_list.size()) break;
             if(ecoStore_idx != pay_list.get(i).getStoreIdx())
             {
                 pay_list.remove(i);
             }
+            else{
+                i++;
+            }
         }
+
+        ArrayList<EcoStore> es_list = ecoStoreDatabaseManager.selectList();
+        EcoStore es = es_list.get(ecoStore_idx-1);
+
+        TextView allstampnumber = (TextView)v.findViewById(R.id.allstampnumber);
+        TextView storeStamp = (TextView)v.findViewById(R.id.storeStamp);
+        TextView storeSale = (TextView)v.findViewById(R.id.storeSale);
+
+        int stamp = es.getCustomerStamp();
+        int store_stamp = es.getStoreStamp();
+        double store_sale = es.getStoreSale();
+
+        allstampnumber.setText(Integer.toString(stamp));
+        storeStamp.setText(Integer.toString(store_stamp));
+        storeSale.setText(Double.toString(store_sale));
 
         adapter=new StampManageAdapter();
         stampManegeList=(ListView) v.findViewById(R.id.stampManageList);
         stampManegeList.setAdapter(adapter);
-
 
         return v;
     }
@@ -86,7 +109,7 @@ public class FragmentStampManage extends Fragment {
             final Payment pm = pay_list.get(position);
 
             //아이템 내 각 위젯에 데이터 반영
-            tv_stampList.setText(Integer.toString(pm.getStamp()));
+            tv_stampList.setText("-"+Integer.toString(pm.getStamp()));
 
             return convertView;
         }
