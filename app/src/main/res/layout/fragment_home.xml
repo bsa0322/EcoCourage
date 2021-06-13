@@ -70,6 +70,19 @@
             android:textColor="#000"
             android:textSize="20sp" />
 
+
+        <Button
+            android:id="@+id/mycourage"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="130dp"
+            android:layout_height="90dp"
+            android:layout_marginLeft="180dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/white"
+            android:text="(용기점수)"
+            android:textColor="#000"
+            android:textSize="20sp" />
+
         <Button
             android:id="@+id/addstore"
             style="@style/Widget.AppCompat.Button.Borderless"
