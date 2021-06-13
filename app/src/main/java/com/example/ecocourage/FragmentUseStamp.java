@@ -24,6 +24,17 @@ import java.util.ArrayList;
 public class FragmentUseStamp extends Fragment {
     private ListView useStampList;//스탬프사용 가게 리스트뷰
     private UseStampAdapter adapter;
+    private MainActivity activity;
+
+    public void onAttach(Context context){
+        super.onAttach(context);
+        activity=(MainActivity)getActivity();
+    }
+    public void onDetach(){
+        super.onDetach();
+        activity=null;
+    }
+
     //private ArrayList<UseStampStoreData> s_list;
 
     //데이터베이스
@@ -44,6 +55,7 @@ public class FragmentUseStamp extends Fragment {
         adapter=new UseStampAdapter();
         useStampList=(ListView) v.findViewById(R.id.useStampList);
         useStampList.setAdapter(adapter);
+
 
       return v;
     }
@@ -76,6 +88,7 @@ public class FragmentUseStamp extends Fragment {
             final int pos=position;
             final Context context=parent.getContext();
 
+
             //convertview참조
             if(convertView==null)
             {
@@ -88,7 +101,9 @@ public class FragmentUseStamp extends Fragment {
             TextView tv_myStampNumber=(TextView) convertView.findViewById(R.id.myStampNumber);
             TextView tv_storeStamp=(TextView) convertView.findViewById(R.id.storeStamp);
             TextView tv_storeSale=(TextView) convertView.findViewById(R.id.storeSale);
-            //버튼도 구현?
+
+            //스탬프 사용하기 버튼
+            Button usebutton=(Button) convertView.findViewById(R.id.useButton);
 
             //position에 위치한 데이터 참조 획득
             final EcoStore es = eco_list.get(position);
@@ -99,6 +114,16 @@ public class FragmentUseStamp extends Fragment {
             tv_myStampNumber.setText(Integer.toString(es.getCustomerStamp()));
             tv_storeStamp.setText(Integer.toString(es.getStoreStamp()));
             tv_storeSale.setText(Double.toString(es.getStoreSale()));
+
+
+            //사용하기 버튼 누르면 n%할인해주세요 애용카드로
+            usebutton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    activity.onFragmentChange(2);
+                }
+            });
+
 
             return convertView;
         }
