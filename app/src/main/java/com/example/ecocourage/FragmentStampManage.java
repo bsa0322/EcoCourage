@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class FragmentStampManage extends Fragment {
     private ListView stampManegeList;//스탬프관리 리스트뷰
@@ -62,6 +63,9 @@ public class FragmentStampManage extends Fragment {
         allstampnumber.setText(Integer.toString(stamp));
         storeStamp.setText(Integer.toString(store_stamp));
         storeSale.setText(Double.toString(store_sale));
+    
+        //리스트뷰에 역순으로 채우기 위해 리스트 리벌스
+        Collections.reverse(pay_list);
 
         adapter=new StampManageAdapter();
         stampManegeList=(ListView) v.findViewById(R.id.stampManageList);
@@ -113,7 +117,7 @@ public class FragmentStampManage extends Fragment {
             tv_stampList.setText(Integer.toString(pm.getStamp()));
 
             //날짜설정
-            int date = position+1;
+            int date = pm.getIdx();
             int month = date / 30 + 1;
             int day = date % 30;
             tv_date.setText(Integer.toString(month)+"."+Integer.toString(day));
