@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
@@ -26,6 +28,13 @@ public class FragmentUseStampCard extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.fragment_usestampcard,container,false);
 
+        //애니메이션
+        Animation animation = AnimationUtils.loadAnimation(v.getContext(),R.anim.rotate);
+        Button aeyoungBtn=v.findViewById(R.id.aeyoung_usestampcard);
+
+        aeyoungBtn.startAnimation(animation);
+
+
         PaymentDatabaseManager databaseManager_payment = new PaymentDatabaseManager(getActivity().getApplicationContext());
         EcoStoreDatabaseManager databaseManager_ecoStore = new EcoStoreDatabaseManager(getActivity().getApplicationContext());
 
@@ -42,6 +51,8 @@ public class FragmentUseStampCard extends Fragment {
             public void onClick(View v) {
                 //메인화면으로 가게 하기
                 activity.onFragmentChange(7);
+                //용기점수 올라감
+                FragmentHome.myCourageNumber++;
             }
         });
 
