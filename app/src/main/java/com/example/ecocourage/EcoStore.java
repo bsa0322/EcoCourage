@@ -13,6 +13,8 @@ public class EcoStore implements Serializable{
     int ranking; //가게 순위
     double storePlaceX; //가게 x좌표값
     double storePlaceY; //가게 y좌표값
+    int storeStamp; //가게 할인률당 스탬프량
+    double storeSale; //가게 할인률
 
     public EcoStore(String name, String tel, int idx){
         this.customerCourage=0;
@@ -32,6 +34,27 @@ public class EcoStore implements Serializable{
         this.address=address;
         this.customerCourage=0;
         this.customerStamp=0;
+    }
+
+    public EcoStore(String name, String address, int ranking, int storeStamp, double storeSale){
+        this.name=name;
+        this.address=address;
+        this.ranking=ranking;
+        this.storeStamp=storeStamp;
+        this.storeSale=storeSale;
+        this.customerCourage=0;
+        this.customerStamp=0;
+    }
+
+    public EcoStore(int idx, String name, String address, int customerCourage, int customerStamp, int ranking, int storeStamp, double storeSale){
+        this.idx=idx;
+        this.name=name;
+        this.address=address;
+        this.ranking=ranking;
+        this.storeStamp=storeStamp;
+        this.storeSale=storeSale;
+        this.customerCourage=customerCourage;
+        this.customerStamp=customerStamp;
     }
 
     public int getIdx(){
@@ -87,5 +110,17 @@ public class EcoStore implements Serializable{
     }
     public void setStorePlaceY(double storePlaceY) {
         this.storePlaceY = storePlaceY;
+    }
+    public int getStoreStamp() {
+        return storeStamp;
+    }
+    public void setStoreStamp(int storeStamp) {
+        this.storeStamp = storeStamp;
+    }
+    public double getStoreSale() {
+        return storeSale;
+    }
+    public void setStoreSale(double storeSale) {
+        this.storeSale = storeSale;
     }
 }

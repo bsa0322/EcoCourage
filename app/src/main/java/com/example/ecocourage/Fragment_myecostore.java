@@ -50,6 +50,7 @@ public class Fragment_myecostore extends Fragment {
 
         display_ecostroe_list();
 
+        //등록 버튼 클릭시
         Button btn_add = v.findViewById(R.id.btn_add);
         btn_add.setOnClickListener(new View.OnClickListener(){
             @Override

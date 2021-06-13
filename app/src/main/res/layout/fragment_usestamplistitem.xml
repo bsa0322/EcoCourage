@@ -11,15 +11,14 @@
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        >
+        android:layout_marginRight="20dp">
+
         <TextView
             android:id="@+id/storeName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="15dp"
-            android:gravity="center_vertical"
-/>
+            android:gravity="center_vertical" />
         <TextView
             android:id="@+id/storeAddress"
             android:layout_width="match_parent"
@@ -32,8 +31,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="bottom"
-            >
+            android:gravity="bottom">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -43,6 +42,7 @@
                 android:id="@+id/myStampNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="0"
                 android:textSize="30dp"
                 android:layout_gravity="center_vertical"/>
             <TextView
@@ -51,11 +51,12 @@
                 android:text=" 개"
                 android:textSize="25dp"
                 android:layout_gravity="center_vertical"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="right">
+                android:orientation="vertical">
+
                 <Button
                     android:id="@+id/useButton"
                     android:layout_width="wrap_content"
@@ -63,13 +64,44 @@
                     android:layout_gravity="right"
                     android:text="사용하기"
                     android:backgroundTint="#70AD47" />
-                <TextView
-                    android:layout_width="wrap_content"
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="스탬프 n개당 n%할인"
-                    android:textSize="15dp"
-                    android:layout_gravity="right"
-                    />
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="155dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="스탬프 "
+                        android:textSize="15dp" />
+                    <TextView
+                        android:id="@+id/storeStamp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="15dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="개당 "
+                        android:textSize="15dp"
+                        />
+                    <TextView
+                        android:id="@+id/storeSale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="n"
+                        android:textSize="15dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="%할인"
+                        android:textSize="15dp"/>
+
+                </LinearLayout>
+
             </LinearLayout>
 
 

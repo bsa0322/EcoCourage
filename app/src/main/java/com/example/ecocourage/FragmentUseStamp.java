@@ -16,6 +16,8 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 
@@ -84,6 +86,8 @@ public class FragmentUseStamp extends Fragment {
             TextView tv_storeName=(TextView) convertView.findViewById(R.id.storeName);
             TextView tv_storeAddress=(TextView) convertView.findViewById(R.id.storeAddress);
             TextView tv_myStampNumber=(TextView) convertView.findViewById(R.id.myStampNumber);
+            TextView tv_storeStamp=(TextView) convertView.findViewById(R.id.storeStamp);
+            TextView tv_storeSale=(TextView) convertView.findViewById(R.id.storeSale);
             //버튼도 구현?
 
             //position에 위치한 데이터 참조 획득
@@ -93,6 +97,8 @@ public class FragmentUseStamp extends Fragment {
             tv_storeName.setText(es.getName());
             tv_storeAddress.setText(es.getAddress());
             tv_myStampNumber.setText(Integer.toString(es.getCustomerStamp()));
+            tv_storeStamp.setText(Integer.toString(es.getStoreStamp()));
+            tv_storeSale.setText(Double.toString(es.getStoreSale()));
 
             return convertView;
         }
