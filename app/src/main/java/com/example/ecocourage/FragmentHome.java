@@ -53,7 +53,7 @@ public class FragmentHome extends Fragment {
             }
         });
         addstore.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
+            public void onClick(View v) { activity.onFragmentChange(6);
             }
         });
         usestamp.setOnClickListener(new View.OnClickListener() {
