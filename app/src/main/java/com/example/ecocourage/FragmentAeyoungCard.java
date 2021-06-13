@@ -44,28 +44,32 @@ public class FragmentAeyoungCard extends Fragment {
                 ArrayList<EcoStore> es_list = ecoStoreDatabaseManager.selectList();
 
                 int scope = es_list.size();
-                int i=(int)(Math.random()*scope);
 
-                //랜덤으로 뽑힌 가게 스탬프 + 1
-                EcoStore es = es_list.get(i);
-                int stamp = es.getCustomerStamp() + 1;
+                if(scope != 0){
+                    int i=(int)(Math.random()*scope);
 
-                //결제내역 남기기
-                int storeIdx = es.getIdx();
-                String name = es.getName();
+                    //랜덤으로 뽑힌 가게 스탬프 + 1
+                    EcoStore es = es_list.get(i);
+                    int stamp = es.getCustomerStamp() + 1;
 
-                PaymentDatabaseManager databaseManager_payment = new PaymentDatabaseManager(getActivity().getApplicationContext());
+                    //결제내역 남기기
+                    int storeIdx = es.getIdx();
+                    String name = es.getName();
 
-                //데이터 저장-스탬프증가
-                Payment pm = new Payment(storeIdx,name,es.getStoreSale(),1,1);
+                    PaymentDatabaseManager databaseManager_payment = new PaymentDatabaseManager(getActivity().getApplicationContext());
 
-                //데이터베이스에 등록
-                databaseManager_payment.insert(pm);
+                    //데이터 저장-스탬프증가
+                    Payment pm = new Payment(storeIdx,name,es.getStoreSale(),1,1);
 
-                //업데이트 데이터 다시 만들기
-                EcoStore es_up = new EcoStore(es.getIdx(),es.getName(),es.getAddress(),es.getCustomerCourage(),stamp,es.getRanking(),es.getStoreStamp(),es.getStoreSale());
-                //애용가게 데이터 업데이트
-                ecoStoreDatabaseManager.update(es_up);
+                    //데이터베이스에 등록
+                    databaseManager_payment.insert(pm);
+
+                    //업데이트 데이터 다시 만들기
+                    EcoStore es_up = new EcoStore(es.getIdx(),es.getName(),es.getAddress(),es.getCustomerCourage(),stamp,es.getRanking(),es.getStoreStamp(),es.getStoreSale());
+                    //애용가게 데이터 업데이트
+                    ecoStoreDatabaseManager.update(es_up);
+                }
+
             }
         });
 
