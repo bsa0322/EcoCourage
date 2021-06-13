@@ -110,6 +110,7 @@ public class Fragment_myecostore extends Fragment {
             TextView textView_name = convertView.findViewById(R.id.textView_name);
             TextView textView_address = convertView.findViewById(R.id.textView_address);
             Button button_delete = convertView.findViewById(R.id.button_delete);
+            Button button_stamp=convertView.findViewById(R.id.button_stamp);
 
             //배치해야될 데이터 1개 얻어오기
             final EcoStore es = eco_list.get(position);
@@ -144,6 +145,14 @@ public class Fragment_myecostore extends Fragment {
                 }
             });
 
+            //내 애용가게에서 스탬프 버튼
+            button_stamp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    activity.onFragmentChange(3);
+                }
+            });
+            
             return convertView;
         }
 

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/stampmanage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/stampicon1"
+                android:layout_gravity="center_vertical"/>
+            <TextView
+                android:id="@+id/allstampnuber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="n"
+                android:textSize="50dp"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="10dp"
+                android:textColor="#8BC34A"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 개"
+                android:textSize="30dp"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="10dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스탬프 "
+                android:textSize="20dp" />
+            <TextView
+                android:id="@+id/storeStamp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="25dp"
+                android:textColor="#8BC34A"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="개당 "
+                android:textSize="20dp"
+                />
+            <TextView
+                android:id="@+id/storeSale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="n"
+                android:textSize="25dp"
+                android:textColor="#8BC34A"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="%할인"
+                android:textSize="20dp"/>
+        </LinearLayout>
+    </LinearLayout>
+    <ListView
+        android:id="@+id/stampManageList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="70dp"/>
+</LinearLayout>
