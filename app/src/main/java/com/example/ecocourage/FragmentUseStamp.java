@@ -121,6 +121,20 @@ public class FragmentUseStamp extends Fragment {
                 @Override
                 public void onClick(View v) {
                     activity.onFragmentChange(2);
+
+                    //결제내역 남기기
+                    int storeIdx = es.getIdx();
+                    String name = es.getName();
+                    double sale = es.getStoreSale();
+                    int stamp = es.getStoreStamp();
+                    int courage = 1;
+                    PaymentDatabaseManager databaseManager_payment = new PaymentDatabaseManager(getActivity().getApplicationContext());
+
+                    //데이터 저장
+                    Payment pm = new Payment(storeIdx,name,sale,stamp,courage);
+
+                    //데이터베이스에 등록
+                    databaseManager_payment.insert(pm);
                 }
             });
 
