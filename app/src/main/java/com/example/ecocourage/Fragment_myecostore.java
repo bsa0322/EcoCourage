@@ -26,6 +26,10 @@ import java.util.ArrayList;
 
 public class Fragment_myecostore extends Fragment {
 
+    public static Context context_myecostore;
+
+    public static int ecoStore_idx;
+
     private MainActivity activity;
     View v;
 
@@ -150,6 +154,7 @@ public class Fragment_myecostore extends Fragment {
                 @Override
                 public void onClick(View v) {
                     activity.onFragmentChange(3);
+                    ecoStore_idx=es.getIdx();
                 }
             });
             
