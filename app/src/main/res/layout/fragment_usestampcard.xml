@@ -3,21 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#B9000000"
+    android:orientation="vertical">
 
     //스탬프 사용하기 누르면 나오는 카드
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:id="@+id/aeyoung_usestampcard"
-        android:layout_width="500dp"
-        android:layout_height="320dp"
-        android:layout_marginLeft="-42dp"
-        android:layout_marginTop="190dp"
+        android:layout_width="340dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="80dp"
         android:paddingRight="30dp"
         android:drawableRight="@drawable/aeyoungcardicon"
-        android:text="     n%를 할인해주세요"
-        android:textSize="35dp"
-        android:background="@drawable/buttonshape"
-        android:rotation="+90"
+        android:text="n%를\n할인해주세요"
+        android:textSize="30dp"
+        android:textColor="@color/black"
+        android:backgroundTint="#D0E3BA"
+        android:theme="@style/Theme.EcoCourage.addRipple"
         />
 
 </LinearLayout>

@@ -15,6 +15,7 @@ public class FragmentAeyoungCard extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v= inflater.inflate(R.layout.fragment_aeyoungcard,container,false);
         
+        //애니메이션
         Animation animation = AnimationUtils.loadAnimation(v.getContext(),R.anim.rotate);
         aeyoungBtn=v.findViewById(R.id.aeyoung_aeyoungcard);
 

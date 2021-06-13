@@ -17,6 +17,7 @@ import androidx.fragment.app.FragmentTransaction;
 public class FragmentHome extends Fragment {
     private FragmentAeyoungCard fragmentAeyoungCard=new FragmentAeyoungCard();
     private MainActivity activity;
+    public static int myCourageNumber=0;
 
     public void onAttach(Context context){
         super.onAttach(context);
@@ -36,11 +37,15 @@ public class FragmentHome extends Fragment {
         Button addstore=(Button) v.findViewById(R.id.addstore);
         Button usestamp=(Button) v.findViewById(R.id.usestamp);
         Button mycourage=(Button) v.findViewById(R.id.mycourage);
-
-
+        
+        //홈화면의 용기점수
+        mycourage.setText(Integer.toString(myCourageNumber)+"점");
+        
         aeyoung.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 activity.onFragmentChange(0);
+                //용기점수 올라감
+                myCourageNumber++;
             }
         });
 
