@@ -104,12 +104,19 @@ public class FragmentStampManage extends Fragment {
             }
 
             TextView tv_stampList = (TextView) convertView.findViewById(R.id.stamplist);//사용변화량
+            TextView tv_date = (TextView) convertView.findViewById(R.id.date); // 날짜
 
             //position에 위치한 데이터 참조 획득
             final Payment pm = pay_list.get(position);
 
             //아이템 내 각 위젯에 데이터 반영
             tv_stampList.setText(Integer.toString(pm.getStamp()));
+
+            //날짜설정
+            int date = position+1;
+            int month = date / 30 + 1;
+            int day = date % 30;
+            tv_date.setText(Integer.toString(month)+"."+Integer.toString(day));
 
             return convertView;
         }
