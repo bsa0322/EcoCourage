@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private FragmentUseStamp fragmentUseStamp=new FragmentUseStamp();
     private Fragment_myecostore fragment_myecostore = new Fragment_myecostore();
     private FragmentSignupEcostore fragmentSignupEcostore = new FragmentSignupEcostore();
+    private FragmentUseStampCard fragmentUseStampcard=new FragmentUseStampCard();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         else if(index==1) getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,fragmentUseStamp).commit();//스탬프사용
         else if(index==5) getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,fragment_myecostore).commit(); //나의애용가게
         else if(index==6) getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,fragmentSignupEcostore).commit(); //애용가게 등록
-
+        else if(index==2) getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,fragmentUseStampcard).commit();//스탬프 사용하기 버튼 누르고 나오는 애용카드
     }
 
 
