@@ -147,7 +147,8 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:layout_gravity="right"
-            android:text="추가하기"/>
+            android:text="추가하기"
+            android:fontFamily="@font/titlegodic2"/>
 
     </LinearLayout>
 

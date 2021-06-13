@@ -17,7 +17,8 @@
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="등록하기"/>
+            android:text="등록하기"
+            android:fontFamily="@font/titlegodic2"/>
 
         <ListView
             android:id="@+id/listView"

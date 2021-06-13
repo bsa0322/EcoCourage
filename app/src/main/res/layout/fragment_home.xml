@@ -30,6 +30,7 @@
         android:layout_marginRight="40dp"
         android:backgroundTint="#A2B1A2"
         android:text="카드등록"
+        android:fontFamily="@font/titlegodic2"
         android:textSize="15sp"
         android:theme="@style/Theme.EcoCourage.addRipple"
         tools:ignore="MissingConstraints"
@@ -53,6 +54,7 @@
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/white"
                 android:text="나의\n애용가게"
+                android:fontFamily="@font/titlegodic2"
                 android:textColor="#000"
                 android:textSize="20sp"
                 android:theme="@style/Theme.EcoCourage.addRipple"/>
@@ -63,6 +65,7 @@
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/white"
                 android:text="애용가게\n등록"
+                android:fontFamily="@font/titlegodic2"
                 android:textColor="#000"
                 android:textSize="20sp"
                 android:theme="@style/Theme.EcoCourage.addRipple"/>
@@ -79,8 +82,11 @@
                 android:layout_height="100dp"
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/white"
+
                 android:drawableLeft="@drawable/motivationicon"
                 android:text="용기점수"
+                android:fontFamily="@font/titlegodic2"
+
                 android:textColor="#000"
                 android:textSize="20sp"
                 android:theme="@style/Theme.EcoCourage.addRipple"/>
@@ -91,6 +97,7 @@
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/white"
                 android:text="스탬프\n사용"
+                android:fontFamily="@font/titlegodic2"
                 android:textColor="#000"
                 android:textSize="20sp"
                 android:theme="@style/Theme.EcoCourage.addRipple"/>
