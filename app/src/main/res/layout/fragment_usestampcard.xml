@@ -21,6 +21,7 @@
         android:textColor="@color/black"
         android:backgroundTint="#D0E3BA"
         android:theme="@style/Theme.EcoCourage.addRipple"
+        android:fontFamily="@font/titlegodic2"
         />
 
 </LinearLayout>
