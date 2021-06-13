@@ -1,5 +1,6 @@
 package com.example.ecocourage;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 
 public class FragmentAeyoungCard extends Fragment {
     private MainActivity activity;
+
 
     public void onAttach(Context context){
         super.onAttach(context);
@@ -34,11 +36,30 @@ public class FragmentAeyoungCard extends Fragment {
         Animation animation = AnimationUtils.loadAnimation(v.getContext(),R.anim.rotate);
         aeyoungBtn=v.findViewById(R.id.aeyoung_aeyoungcard);
 
+
+        //팝업창
+        final View popupView = getLayoutInflater().inflate(R.layout.checkpopup, null);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+
         aeyoungBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //메인화면으로 돌아가기
-                activity.onFragmentChange(7);
+
+                //팝업창
+                builder.setView(popupView);
+                final AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+                //확인버튼
+                Button checkbtn = popupView.findViewById(R.id.checkbtn);
+                checkbtn.setOnClickListener(new Button.OnClickListener(){
+                    public void onClick(View v){
+                        //메인화면으로 돌아가기
+                        activity.onFragmentChange(7);
+                        //팝업창 닫힘
+                        alertDialog.dismiss();
+                    }
+                });
+
                 //랜덤으로 가게 정해서 스탬프 ++
                 EcoStoreDatabaseManager ecoStoreDatabaseManager = new EcoStoreDatabaseManager(getActivity().getApplicationContext());
                 ArrayList<EcoStore> es_list = ecoStoreDatabaseManager.selectList();

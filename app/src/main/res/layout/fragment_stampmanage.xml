@@ -89,5 +89,6 @@
         android:id="@+id/stampManageList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="70dp"/>
+        android:paddingBottom="70dp"
+        />
 </LinearLayout>

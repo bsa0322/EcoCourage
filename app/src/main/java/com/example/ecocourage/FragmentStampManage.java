@@ -1,5 +1,6 @@
 package com.example.ecocourage;
 
+import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import org.w3c.dom.Text;
 
@@ -70,6 +72,8 @@ public class FragmentStampManage extends Fragment {
         adapter=new StampManageAdapter();
         stampManegeList=(ListView) v.findViewById(R.id.stampManageList);
         stampManegeList.setAdapter(adapter);
+
+
 
         return v;
     }
