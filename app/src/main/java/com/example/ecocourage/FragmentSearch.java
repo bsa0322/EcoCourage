@@ -114,8 +114,20 @@ public class FragmentSearch extends Fragment implements OnMapReadyCallback {
         naverMap.setLocationTrackingMode(LocationTrackingMode.Follow);
 
         Marker marker = new Marker();
-        marker.setPosition(new LatLng(37.48809,126.76913));
+        marker.setPosition(new LatLng(37.48630, 126.78076));//카페베네^^
         marker.setMap(naverMap);
+        Marker marker1 = new Marker();
+        marker1.setPosition(new LatLng(37.48529,126.78127));//한스델리
+        
+        marker1.setMap(naverMap);
+        Marker marker2 = new Marker();
+        marker2.setPosition(new LatLng(37.48622,126.78148));//뚜쥬
+       
+        marker2.setMap(naverMap);
+        Marker marker3 = new Marker();
+        marker3.setPosition(new LatLng(37.48584, 126.78148));//미스터피자
+        marker3.setMap(naverMap);
+
 
     }
 }
